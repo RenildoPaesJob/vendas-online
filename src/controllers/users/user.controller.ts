@@ -12,10 +12,6 @@ export class UserController {
 	@Post()
 	async create(@Body() data: createUserDTO)
 	{
-		try {
-			return await this.createUser.execute(data)
-		} catch (error) {
-			throw new HttpException(error.message, HttpStatus.BAD_REQUEST)
-		}
+		return await this.createUser.execute(data)
 	}
 }
