@@ -1,5 +1,5 @@
 import { HttpException, HttpStatus, Injectable } from "@nestjs/common"
-import { createUserDTO } from "./users.dto"
+import { createUserDTO } from "../../dto/user/users.dto"
 import { hash } from "bcrypt"
 import { IUserRepository } from "src/repositories/user/user.repository"
 

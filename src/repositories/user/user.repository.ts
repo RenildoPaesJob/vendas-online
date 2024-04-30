@@ -1,4 +1,4 @@
-import { UserCreatedDTO, UsernameAndEmail, createUserDTO } from "src/services/users/users.dto"
+import { UserCreatedDTO, UsernameAndEmail, createUserDTO } from "src/dto/user/users.dto";
 
 export abstract class IUserRepository {
 

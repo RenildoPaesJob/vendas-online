@@ -6,16 +6,16 @@ import { IUserRepository } from "src/repositories/user/user.repository"
 import { UserPrismaRepositor } from "src/repositories/prisma/user.prisma.repository"
 
 @Module({
-    controllers: [UserController],
-    providers  : [
-			createUser,
-			PrismaService,
-			{
-				provide: IUserRepository,
-				useClass: UserPrismaRepositor
-			}
-		],
-    exports    : []
+	controllers: [UserController],
+	providers: [
+		createUser,
+		PrismaService,
+		{
+			provide: IUserRepository,
+			useClass: UserPrismaRepositor
+		}
+	],
+	exports: []
 })
 
-export class UserModule {}
+export class UserModule { }

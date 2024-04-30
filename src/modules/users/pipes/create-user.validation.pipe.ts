@@ -1,5 +1,5 @@
 import { ArgumentMetadata, HttpException, HttpStatus, Injectable, PipeTransform } from "@nestjs/common";
-import { createUserDTO } from "src/services/users/users.dto";
+import { createUserDTO } from "src/dto/user/users.dto";
 
 @Injectable()
 export class CreateUserValidationPipe implements PipeTransform {
