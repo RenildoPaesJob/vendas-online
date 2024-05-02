@@ -10,7 +10,7 @@ export class UserPrismaRepositor implements IUserRepository {
 		private prisma: PrismaService
 	) { }
 
-	async findByusername(username: string): Promise<UserCreatedDTO> {
+	async findByusername(username: string): Promise<UserCreatedDTO | null> {
 		return await this.prisma.user.findUnique({
 			where: {
 				username
@@ -18,7 +18,7 @@ export class UserPrismaRepositor implements IUserRepository {
 		})
 	}
 
-	async findByUsernameOrEmail(data: UsernameAndEmail): Promise<UserCreatedDTO> {
+	async findByUsernameOrEmail(data: UsernameAndEmail): Promise<UserCreatedDTO | null> {
 		return await this.prisma.user.findFirst({
 			where: {
 				OR: [
@@ -33,7 +33,7 @@ export class UserPrismaRepositor implements IUserRepository {
 		return await this.prisma.user.create({ data })
 	}
 
-	async findById(id: string): Promise<UserCreatedDTO> {
+	async findById(id: string): Promise<UserCreatedDTO | null> {
 		return this.prisma.user.findUnique({
 			where: {
 				id
