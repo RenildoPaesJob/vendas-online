@@ -1,7 +1,7 @@
 import { Module } from "@nestjs/common";
 import { JwtModule } from "@nestjs/jwt";
 import { LoginController } from "src/controllers/login/login.controller";
-import { PrismaService } from "src/infra/database/prisma.service";
+import { PrismaService } from "src/infra/database/prisma.database";
 import { SignInUseCase } from "src/services/login/sign-in.usecase";
 
 @Module({
@@ -10,7 +10,7 @@ import { SignInUseCase } from "src/services/login/sign-in.usecase";
 		JwtModule.register({
 			global: true,
 			secret: "NESTJS_CURSO",
-			signOptions: { expiresIn: "60s"}
+			signOptions: { expiresIn: "120s"}
 		})
 	],
 	providers: [

@@ -2,7 +2,7 @@ import { Injectable, UnauthorizedException } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
 import { compare } from "bcrypt";
 import { SingInDTO } from "src/dto/login/sign-in.dto";
-import { PrismaService } from "src/infra/database/prisma.service";
+import { PrismaService } from "src/infra/database/prisma.database";
 
 @Injectable()
 export class SignInUseCase {

@@ -7,4 +7,6 @@ export abstract class IUserRepository {
 	abstract save(data: createUserDTO): Promise<UserCreatedDTO>
 
 	abstract findByusername(username: string): Promise<UserCreatedDTO | null>
+
+	abstract findById(id: string): Promise<UserCreatedDTO | null>
 }
