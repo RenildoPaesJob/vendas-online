@@ -17,6 +17,7 @@ export class createUser {
 		})
 
 		if (user){
+			//logger para acompanhar os erros
 			this.logger.error(`User ${data.username} already exists... `, data)
 			throw new HttpException("User already exists!", HttpStatus.BAD_REQUEST)
 		}

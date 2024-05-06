@@ -1,4 +1,5 @@
-import { Body, Controller, Get, Post, Request, UseGuards, UsePipes } from "@nestjs/common"
+import { Body, Controller, Get, Post, Request, UseGuards, UseInterceptors, UsePipes } from "@nestjs/common"
+import { FileInterceptor } from "@nestjs/platform-express";
 import { AuthGuard } from "src/infra/providers/auth-guards";
 import { CreateUserValidationPipe } from "src/modules/users/pipes/create-user.validation.pipe";
 import { CreateUserResponseSchemaDTO, CreateUserSchemaDTO } from "src/schemas/create-user.schema";
@@ -31,7 +32,14 @@ export class UserController {
 	@UseGuards(AuthGuard)// tem o mesmo papel de uma middleware
 	async profile(@Request() req)
 	{
-		// console.log('🚀 ~ UserController ~ profile ~ req:', req.user)
 		return this.profileUserUseCase.execute(req.user.sub)
+	}
+
+	@Post("/avatar/upload")
+	@UseGuards(AuthGuard)
+	@UseInterceptors(FileInterceptor("file"))
+	async uploadAvatar(@Request() req, file: Express.Multer.File){
+		console.log('🚀 ~ UserController ~ uploadAvatar ~ file:', file)
+
 	}
 }

@@ -6,8 +6,8 @@ export const CreateTaskUserSchema = z.object({
 	description: z.string(),
 	priority: z.enum(["BAIXA", "MEDIA", "ALTA"]),
 	status: z.enum(["PENDENTE", "ANDAMENTO", "CONCLUIDA"]),
-	startAt: z.date(),
-	endAt: z.date()
+	startAt: z.string().transform(item => new Date(item)),
+	endAt: z.string().transform(item => new Date(item))
 })
 
 export class CreateTaskUserSchemaDTO extends createZodDto(CreateTaskUserSchema){}
