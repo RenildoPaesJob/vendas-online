@@ -6,7 +6,7 @@ export type TaskUserRequestDTO = {
 	startAt    : Date,
 	endAt      : Date,
 	priority   : "BAIXA" | "MEDIA" | "ALTA",
-	status     : "PEDENTE" | "ANDAMENTO" | "CONCLUIDA"
+	status     : "PENDENTE" | "ANDAMENTO" | "CONCLUIDA"
 }
 
 export type TaskUserResponseDTO = {
