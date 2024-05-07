@@ -1,12 +1,14 @@
 import { Body, Controller, Get, Post, Put, Request, UploadedFile, UseGuards, UseInterceptors, UsePipes } from "@nestjs/common"
 import { FileInterceptor } from "@nestjs/platform-express";
-import { FileDTO } from "src/dto/user/users.dto";
-import { AuthGuard } from "src/infra/providers/auth-guards";
-import { CreateUserValidationPipe } from "src/modules/users/pipes/create-user.validation.pipe";
-import { CreateUserResponseSchemaDTO, CreateUserSchemaDTO } from "src/schemas/create-user.schema";
-import { ProfileUserUserCase } from "src/services/login/profile-user.usecase";
-import { createUser } from "src/services/users/createUser.service";
-import { UploadAvatarUserUserCase } from "src/services/users/upload-avatar-user.usecase";
+import { createUser } from '../../services/users/createUser.service';
+import { ProfileUserUserCase } from '../../services/login/profile-user.usecase';
+import { UploadAvatarUserUserCase } from '../../services/users/upload-avatar-user.usecase';
+import { CreateUserValidationPipe } from '../../modules/users/pipes/create-user.validation.pipe';
+import { CreateUserSchemaDTO } from '../../schemas/create-user.schema';
+import { CreateUserResponseSchemaDTO } from '../../schemas/create-user.schema';
+import { AuthGuard } from '../../infra/providers/auth-guards';
+import { FileDTO } from '../../dto/user/users.dto';
+
 
 @Controller("users")
 export class UserController {
