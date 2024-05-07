@@ -20,7 +20,7 @@ model User {
 	email String @unique
 	password String
 	TaskUser TaskUser[]
-
+	avatarUrl String?
 	createdAt DateTime @default(now())
 
 	@@map("users")

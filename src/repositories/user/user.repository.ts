@@ -9,4 +9,6 @@ export abstract class IUserRepository {
 	abstract findByusername(username: string): Promise<UserCreatedDTO | null>
 
 	abstract findById(id: string): Promise<UserCreatedDTO | null>
+
+	abstract uploadAvatar(id: string, path: string): Promise<void>
 }

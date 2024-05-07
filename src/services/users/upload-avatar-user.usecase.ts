@@ -2,6 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { AvatarDTO } from "src/dto/user/users.dto";
 import { IStorage } from "src/infra/providers/storage/storage";
 import { IUserRepository } from "src/repositories/user/user.repository";
+import { extname } from "path"
 
 @Injectable()
 export class UploadAvatarUserUserCase {
@@ -12,8 +13,17 @@ export class UploadAvatarUserUserCase {
 	){}
 
 	async execute(data: AvatarDTO) {
+		//novo nome arquivo
+		const extFile = extname(data.file.originalname)
+		const transformName = `${data.idUser}${extFile}`
+		data.file.originalname = transformName
+
+		//update db user with avatar path
 		const file = await this.strorage.upload(data.file, "avatar")
-		console.log('🚀 ~ UploadAvatarUserUserCase ~ execute ~ file:', file)
+
+		const pathAvatarUser = `avatar/${data.file.originalname}`
+		await this.userRpository.uploadAvatar(data.idUser, pathAvatarUser)
+
 		return file
 	}
 }
