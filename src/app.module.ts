@@ -6,6 +6,7 @@ import { ZodValidationPipe } from 'nestjs-zod';
 import { TaskUserModule } from './modules/tasks/task.modules';
 import { NotificationModule } from './modules/notification/notification.modules';
 import { ScheduleTaskModule } from './infra/jobs/schedule.module';
+import { PrismaModule } from './infra/database/prisma.module';
 
 @Module({
 	controllers: [],
@@ -13,7 +14,14 @@ import { ScheduleTaskModule } from './infra/jobs/schedule.module';
 		provide: APP_PIPE,
 		useClass: ZodValidationPipe
 	}],
-	imports: [UserModule, LoginModule, TaskUserModule, NotificationModule, ScheduleTaskModule],
+	imports: [
+		PrismaModule,
+		UserModule,
+		LoginModule,
+		TaskUserModule,
+		NotificationModule,
+		ScheduleTaskModule
+	],
 })
 
 export class AppModule { }
