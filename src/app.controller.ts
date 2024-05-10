@@ -15,9 +15,4 @@ export class AppController {
 	taskNotification(data: any){
 		console.log("Recebendo mensagem: ", data);
 	}
-
-	@EventPattern("task_notification")
-	taskNotification2(data: any){
-		console.log("Recebendo mensagem 2: ", data);
-	}
 }
