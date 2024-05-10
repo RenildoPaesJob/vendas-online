@@ -4,7 +4,6 @@ import { LoginModule } from './modules/login/sign-in.modules';
 import { APP_PIPE } from '@nestjs/core';
 import { ZodValidationPipe } from 'nestjs-zod';
 import { TaskUserModule } from './modules/tasks/task.modules';
-import { NotificationModule } from './modules/notification/notification.modules';
 import { ScheduleTaskModule } from './infra/jobs/schedule.module';
 import { PrismaModule } from './infra/database/prisma.module';
 
@@ -19,7 +18,6 @@ import { PrismaModule } from './infra/database/prisma.module';
 		UserModule,
 		LoginModule,
 		TaskUserModule,
-		NotificationModule,
 		ScheduleTaskModule
 	],
 })
