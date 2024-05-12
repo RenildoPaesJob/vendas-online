@@ -20,7 +20,7 @@ export class NotificationTaskUserSchedule {
 		@Inject("NOTIFICATION") private readonly notificationClient: ClientProxy
 	) { }
 
-	@Cron(CronExpression.EVERY_10_SECONDS)
+	@Cron(CronExpression.EVERY_DAY_AT_11PM)
 	async getAllTaskDay() {
 		const allTasks = await this.taskRepository.findAllStartDay();
 

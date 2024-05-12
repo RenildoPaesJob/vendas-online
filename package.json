@@ -26,6 +26,7 @@
     "@nestjs/microservices": "^10.3.8",
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/schedule": "^4.0.2",
+    "@nestjs/swagger": "^7.3.1",
     "@supabase/supabase-js": "^2.43.1",
     "@types/cron": "^2.4.0",
     "bcrypt": "^5.1.1",
